@@ -18,7 +18,7 @@ public class EspacoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_espaco")
-    private Long id;
+    private Long idEspaco;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_endereco", referencedColumnName = "id_endereco")
@@ -37,7 +37,7 @@ public class EspacoEntity {
     private CaracteristicasEntity caracteristicas;
 
     public EspacoEntity(EspacoDTO espacoDTO){
-        this.id = espacoDTO.getId();
+        this.idEspaco = espacoDTO.getId();
         this.endereco = new EnderecoEntity(espacoDTO.getEndereco());
         this.usuario = new UserEntity(espacoDTO.getUsuario());
         this.dimensoes = new DimensoesEntity(espacoDTO.getDimensoes());

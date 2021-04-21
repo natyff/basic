@@ -23,11 +23,14 @@ public class DimensoesEntity {
     private float comprimento;
     @Column(name = "nr_altura")
     private float altura;
+    @Column(name = "vl_area")
+    private float area;
 
     public DimensoesEntity(DimensoesDTO dimensoesDTO){
         this.id = dimensoesDTO.getId();
         this.largura = dimensoesDTO.getLargura();
         this.comprimento = dimensoesDTO.getComprimento();
         this.altura = dimensoesDTO.getAltura();
+        this.area = dimensoesDTO.getArea();
     }
 }
