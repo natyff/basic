@@ -11,14 +11,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EspacoDTO {
 
-    private Long id;
+    private Long idEspaco;
     private EnderecoDTO endereco;
     private UserDTO usuario;
     private DimensoesDTO dimensoes;
     private CaracteristicasDTO caracteristicas;
 
     public EspacoDTO(EspacoEntity espacoEntity) {
-        this.id = espacoEntity.getIdEspaco();
+        this.idEspaco = espacoEntity.getIdEspaco();
         this.endereco = new EnderecoDTO();
         this.usuario = new UserDTO();
         this.dimensoes = new DimensoesDTO();
