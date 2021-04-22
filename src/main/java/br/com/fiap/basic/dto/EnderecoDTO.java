@@ -1,5 +1,7 @@
 package br.com.fiap.basic.dto;
 
+import br.com.fiap.basic.entity.EnderecoEntity;
+import br.com.fiap.basic.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,4 +31,15 @@ public class EnderecoDTO {
     @NotBlank
     private String pais;
 
+    public EnderecoDTO(EnderecoEntity enderecoEntity){
+        this.id = enderecoEntity.getId();
+        this.logradouro = enderecoEntity.getLogradouro();
+        this.endereco = enderecoEntity.getEndereco();
+        this.numero = enderecoEntity.getNumero();
+        this.complemento = enderecoEntity.getComplemento();
+        this.bairro = enderecoEntity.getBairro();
+        this.cidade = enderecoEntity.getCidade();
+        this.estado = enderecoEntity.getEstado();
+        this.pais = enderecoEntity.getPais();
+    }
 }

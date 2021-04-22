@@ -1,5 +1,7 @@
 package br.com.fiap.basic.dto;
 
+import br.com.fiap.basic.entity.EnderecoEntity;
+import br.com.fiap.basic.entity.EspacoEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,12 +11,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EspacoDTO {
 
-    private Long id;
+    private Long idEspaco;
     private EnderecoDTO endereco;
     private UserDTO usuario;
     private DimensoesDTO dimensoes;
     private CaracteristicasDTO caracteristicas;
 
-
+    public EspacoDTO(EspacoEntity espacoEntity) {
+        this.idEspaco = espacoEntity.getIdEspaco();
+        this.endereco = new EnderecoDTO();
+        this.usuario = new UserDTO();
+        this.dimensoes = new DimensoesDTO();
+        this.caracteristicas = new CaracteristicasDTO();
+    }
 
 }
