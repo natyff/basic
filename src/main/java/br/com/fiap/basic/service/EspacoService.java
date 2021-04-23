@@ -8,4 +8,7 @@ import java.util.List;
 public interface EspacoService {
 
     List<EspacoDTO> buscarEspaco(String bairro, Float area);
+
+    EspacoDTO addEspaco(EspacoDTO espacoDTO);
+
 }

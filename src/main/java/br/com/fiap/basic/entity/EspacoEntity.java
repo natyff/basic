@@ -6,8 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.catalina.User;
+import org.modelmapper.ModelMapper;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 
 @Entity
 @Data
@@ -24,7 +26,7 @@ public class EspacoEntity {
     @JoinColumn(name = "id_endereco", referencedColumnName = "id_endereco")
     private EnderecoEntity endereco;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_user", referencedColumnName = "id_usuario")
     private UserEntity usuario;
 
@@ -44,4 +46,11 @@ public class EspacoEntity {
         this.caracteristicas = new CaracteristicasEntity(espacoDTO.getCaracteristicas());
 
     }
+
+    public EspacoDTO toDTO(){
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(this, EspacoDTO.class);
+    }
+
+
 }

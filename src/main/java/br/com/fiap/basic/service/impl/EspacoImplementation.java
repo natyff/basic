@@ -45,4 +45,12 @@ public class EspacoImplementation implements EspacoService {
 
         return listaEspacoDTO;
     }
+
+    @Override
+    public EspacoDTO addEspaco(EspacoDTO espaco) {
+        return this.espacoRepository.save(espaco.toEntity()).toDTO();
+
+    }
+
+
 }
