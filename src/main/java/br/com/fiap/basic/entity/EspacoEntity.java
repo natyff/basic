@@ -38,6 +38,9 @@ public class EspacoEntity {
     @JoinColumn(name = "id_caracteristicas", referencedColumnName = "id_caracteristicas")
     private CaracteristicasEntity caracteristicas;
 
+    @Column(name = "status")
+    private Integer status;
+
     public EspacoEntity(EspacoDTO espacoDTO){
         this.idEspaco = espacoDTO.getIdEspaco();
         this.endereco = new EnderecoEntity(espacoDTO.getEndereco());
